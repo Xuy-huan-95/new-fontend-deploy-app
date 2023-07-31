@@ -246,7 +246,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             if (action === "Create") {
-                let dataCreate = await axios.post("http://localhost:3030/api/v6/create-warehouse-pic", formData, {
+                let dataCreate = await axios.post("https://huyle-app-fontend-s75k.vercel.app/api/v6/create-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -290,7 +290,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             } if (action === "Update") {
-                let dataCreate = await axios.put("http://localhost:3030/api/v6/upload-warehouse-pic", formData, {
+                let dataCreate = await axios.put("https://huyle-app-fontend-s75k.vercel.app/api/v6/upload-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -395,7 +395,7 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Update" && dataWarehouseEdit) {
-            setprevireImage("http://localhost:3030/image/" + dataWarehouseEdit.image)
+            setprevireImage("https://huyle-app-fontend-s75k.vercel.app/image/" + dataWarehouseEdit.image)
             setListdata(draft => {
                 draft.id = dataWarehouseEdit.id
                 draft.Product = dataWarehouseEdit.product;
@@ -413,7 +413,7 @@ const ModalCreateWarehouse = (props) => {
         }
         if (action === "Repeat" && dataWarehouseRepeat) {
             console.log("dataWarehouseRepeat", dataWarehouseRepeat.image)
-            setprevireImage("http://localhost:3030/image/" + dataWarehouseRepeat.image)
+            setprevireImage("https://huyle-app-fontend-s75k.vercel.app/image/" + dataWarehouseRepeat.image)
             setListdata(draft => {
                 draft.Product = dataWarehouseRepeat.product;
                 draft.Product_Prince = dataWarehouseRepeat.product_cost;

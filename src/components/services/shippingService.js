@@ -10,7 +10,7 @@ const fetchShippingCostByShippingUnit = (ShippingUnitId) => {
 }
 
 const getPriceByAddress = (From, To, shippingUnitId) => {
-    return axios.get(`http://localhost:3030/api/v6/getPrice?From=${From}&To=${To}&shippingUnit_Id=${shippingUnitId}`)
+    return axios.get(`https://huyle-app-fontend-s75k.vercel.app/api/v6/getPrice?From=${From}&To=${To}&shippingUnit_Id=${shippingUnitId}`)
 }
 
 export {
