@@ -763,7 +763,7 @@ const DetailProduct = (props) => {
         }
         formData.append("order", projects.order);
 
-        let dataCreateImage = await axios.post("https://huyle-app-fontend-s75k.vercel.app/api/v6/upload-multiple-pic", formData, {
+        let dataCreateImage = await axios.post("https://huy-le-app.onrender.com/api/v6/upload-multiple-pic", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -1918,13 +1918,13 @@ const DetailProduct = (props) => {
                                                                                                             {actionModalFour === "4" ?
                                                                                                                 <>
 
-                                                                                                                    <img src={"https://huyle-app-fontend-s75k.vercel.app/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                    <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
                                                                                                                     <h5 className="card-title" onClick={() => handleDeleteImage(item.url)}> <i className="fa fa-times-circle" aria-hidden="true"></i></h5>
 
                                                                                                                 </>
                                                                                                                 :
-                                                                                                                <img src={"https://huyle-app-fontend-s75k.vercel.app/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
 
                                                                                                             }
@@ -2045,7 +2045,7 @@ const DetailProduct = (props) => {
 
 
 
-                                                                                                        <img src={"https://huyle-app-fontend-s75k.vercel.app/image/" + item.url} alt="" title='View detail image' />
+                                                                                                        <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
 
 
