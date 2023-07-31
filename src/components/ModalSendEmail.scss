@@ -1,0 +1,24 @@
+.ResetPass-container {
+    .Otp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .inputStyle {
+            width: 3rem !important;
+            height: 3rem;
+            margin: 0 1rem;
+            font-size: 2rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, .3);
+
+        }
+    }
+
+    .time-Stamp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

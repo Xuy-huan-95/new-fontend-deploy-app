@@ -1,0 +1,46 @@
+.role-container {
+    margin-top: 65px;
+    // background-color: #f0f2f5;
+
+
+    .role-search {
+        height: 17vh;
+        margin-top: 7vh;
+        margin-bottom: 3vh;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgb(0 0 0/10%), 0 8px 16px rgb(0 0 0/10%);
+        box-sizing: border-box;
+        background-color: #f0f2f5;
+        overflow: auto;
+
+    }
+
+    .add-role {
+        max-height: 35vh;
+        overflow: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgb(0 0 0/10%), 0 8px 16px rgb(0 0 0/10%);
+        box-sizing: border-box;
+        background-color: #f0f2f5;
+        margin-bottom: 3vh;
+
+
+    }
+
+    .List-role {
+        height: 36vh;
+        margin-top: 7vh;
+
+        box-sizing: border-box;
+    }
+
+    .action {
+        button {
+            margin-right: 10px;
+        }
+    }
+}
+
+.table {
+    overflow-x: auto;
+}

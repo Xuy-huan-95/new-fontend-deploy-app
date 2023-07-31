@@ -1,0 +1,32 @@
+.container-modal {
+    max-height: 100%;
+
+    .image-item {
+        width: 100%;
+        height: 8vh;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    h2 {
+        height: 20%;
+        color: rgb(106, 106, 221);
+    }
+
+    span {
+        height: 20%;
+
+        font-size: 20px;
+        color: #7790b6;
+        font-weight: 500;
+    }
+
+    .button {
+        height: 10%;
+
+    }
+
+}

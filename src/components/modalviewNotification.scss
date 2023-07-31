@@ -1,0 +1,59 @@
+.notification-Container {
+    display: flex;
+    max-height: 90vh;
+    height: 90vh;
+    overflow: auto;
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .button {
+        display: flex;
+        gap: 10px;
+        font-size: 25px;
+        font-weight: 400;
+
+        .item-One {
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+
+        }
+
+        .item-Two {
+            padding: 10px 30px;
+            border-radius: 50px;
+
+            cursor: pointer;
+
+        }
+    }
+
+    .content {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+
+        .notifiaction_content {
+            cursor: pointer;
+
+            .time {
+                display: flex;
+                justify-content: flex-end;
+                font-size: 15px;
+                color: #7790b6;
+            }
+        }
+    }
+
+    .Not-Found {
+        display: flex;
+        justify-content: center;
+        font-weight: 800;
+    }
+}

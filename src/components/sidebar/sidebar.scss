@@ -1,0 +1,59 @@
+.sidebar-container {
+    height: 100%;
+
+    .pro-sidebar {
+        height: 100%;
+        color: #d9dee7;
+        font-size: 30px;
+
+        .pro-menu {
+            a {
+                color: #cad1e2;
+            }
+
+            ul {
+                .pro-sub-menu {
+                    .pro-inner-list-item {
+                        background: #6a97db;
+                    }
+                }
+            }
+        }
+
+        .pro-sidebar-inner {
+            background: #337ce9;
+
+            .pro-sidebar-layout {
+
+                .pro-sidebar-header {}
+            }
+
+            .pro-menu-item {
+                .pro-inner-item {
+                    .pro-icon-wrapper {
+                        background-color: #b8ab63;
+                        color: #0c1220;
+                    }
+
+                    .pro-item-content {
+                        color: #cad1e2;
+                    }
+
+                    .suffix-wrapper {
+                        color: #cad1e2;
+
+                        .badge {
+                            color: #cad1e2;
+                            font-size: 15px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+}
