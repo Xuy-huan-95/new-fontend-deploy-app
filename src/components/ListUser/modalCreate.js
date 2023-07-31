@@ -85,7 +85,6 @@ const ModalCreate = (props) => {
 
 
         if (action === "Update") {
-            console.log("dataModal", dataModal)
             setUserdata(dataModal)
             setprevireImage(imageConvert)
             handleOnchangeProviceCustomer(dataModal.provincecustomer_id)
@@ -307,7 +306,6 @@ const ModalCreate = (props) => {
     }
 
     const handleConfirmUser = async () => {
-        console.log("userdata", userdata)
         if (action === "Update") {
             if (!userdata["addressDetail"]) {
                 let _validInput = _.cloneDeep(ValidInputsDefault);
@@ -365,7 +363,6 @@ const ModalCreate = (props) => {
 
 
         if (check === true) {
-            console.log("userdata", userdata)
             let res =
                 action === "Create"
                     ?
@@ -374,7 +371,7 @@ const ModalCreate = (props) => {
                     await UpdateUser(userdata)
             if (res && +res.EC === 0) {
                 await UpdateImageChat({
-                    name: userdata.username,
+                    name: userdata.usersname,
                     phone: userdata.phone,
                     image: userdata.image
 
@@ -462,13 +459,23 @@ const ModalCreate = (props) => {
                             <label >
                                 {t('Created-user.Three')}
                                 (<span className='red'>*</span>)</label>
-                            <input
-                                disabled={action === 'Create' ? false : true}
-                                type="email"
-                                className={validInput.email ? "form-control" : "form-control is-invalid"}
-                                value={userdata.email}
-                                onChange={(event) => handleOnchangeInput(event.target.value, "email")}
-                            />
+                            {action === 'Create' &&
+                                < input
+                                    type="email"
+                                    className={validInput.email ? "form-control" : "form-control is-invalid"}
+                                    value={userdata.email}
+                                    onChange={(event) => handleOnchangeInput(event.target.value, "email")}
+                                />
+                            }
+                            {action === 'Update' &&
+                                < input
+                                    disabled
+                                    type="email"
+                                    className={validInput.email ? "form-control" : "form-control is-invalid"}
+                                    value={userdata.email}
+                                    onChange={(event) => handleOnchangeInput(event.target.value, "email")}
+                                />
+                            }
                         </div>
 
                         <div className='col-12 col-sm-6 form-group'>
@@ -478,8 +485,8 @@ const ModalCreate = (props) => {
                             </label>
                             <input
                                 type="text" className='form-control'
-                                value={userdata.username}
-                                onChange={(event) => handleOnchangeInput(event.target.value, "username")}
+                                value={userdata.usersname}
+                                onChange={(event) => handleOnchangeInput(event.target.value, "usersname")}
 
                             />
                         </div>
