@@ -245,7 +245,7 @@ const ModalCreateWarehouse = (props) => {
 
         if (check === true) {
             const formData = new FormData();
-
+            console.log("listdata", listdata)
 
             formData.append('file', listdata.image);
             formData.append('Product', listdata.Product);
@@ -262,7 +262,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             if (action === "Create") {
-                let dataCreate = await axios.post("https://huy-le-app.onrender.com/api/v6/create-warehouse-pic", formData, {
+                let dataCreate = await axios.post("http://localhost:3030/api/v6/create-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -301,7 +301,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             } if (action === "Update") {
-                let dataCreate = await axios.put("https://huy-le-app.onrender.com/api/v6/upload-warehouse-pic", formData, {
+                let dataCreate = await axios.put("http://localhost:3030/api/v6/upload-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -395,7 +395,7 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Update") {
-            setprevireImage("https://huy-le-app.onrender.com/image/" + dataWarehouseEdit.image)
+            setprevireImage("http://localhost:3030/image/" + dataWarehouseEdit.image)
             setListdata(draft => {
                 draft.id = dataWarehouseEdit.id
                 draft.Product = dataWarehouseEdit.product;
@@ -412,7 +412,7 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Repeat" && dataWarehouseRepeat) {
-            setprevireImage("https://huy-le-app.onrender.com/image/" + dataWarehouseRepeat.image)
+            setprevireImage("http://localhost:3030/image/" + dataWarehouseRepeat.image)
             setListdata(draft => {
                 draft.Product = dataWarehouseRepeat.product;
                 draft.Product_Prince = dataWarehouseRepeat.product_cost;

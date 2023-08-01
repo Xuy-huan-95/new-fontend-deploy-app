@@ -32,8 +32,8 @@ const Warehouse_status_productId2 = (props) => {
     const [currentLimit, setCurrentLimit] = useState(8)
     const [totalPage, setTotalPage] = useState(0)
     const [action, setAction] = useState("")
-    const [dataWarehouseEdit, setDataWarehouseEdit] = useState("")
-    const [dataWarehouseRepeat, setDataWarehouseRepeat] = useState("")
+    const [dataWarehouseEdit, setDataWarehouseEdit] = useState([])
+    const [dataWarehouseRepeat, setDataWarehouseRepeat] = useState([])
 
     const [dataWarehouseDelete, setDataWarehouseDelete] = useState("")
 
@@ -42,9 +42,7 @@ const Warehouse_status_productId2 = (props) => {
     const [showModalCreateWarehouse, setShowModalCreateWarehouse] = useState(false);
     const [showModalDeleteWarehouse, setShowModalDeleteWarehouse] = useState(false);
     const [allWarehouseLenght, setAllWarehouseLenght] = useState("")
-    const [statusProduct1, setStatusProduct1] = useState("")
-    const [statusProduct2, setStatusProduct2] = useState("")
-    const [statusProduct3, setStatusProduct3] = useState("")
+
 
     const [isOpen, setIsOpen] = useState(false)
     const [sortDataSearch, setSortDataSearch] = useState(false)
@@ -889,8 +887,8 @@ const Warehouse_status_productId2 = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {+item?.productstatuss_id === 1 &&
@@ -1090,8 +1088,8 @@ const Warehouse_status_productId2 = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {+item?.productstatuss_id === 1 &&
