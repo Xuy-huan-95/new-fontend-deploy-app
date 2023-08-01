@@ -9,7 +9,7 @@ import { updateWarehouse } from "../services/ProjectService"
 import { useTranslation, Trans } from 'react-i18next';
 
 const ModalDeleteWarehouse = (props) => {
-    const { showModalDeleteWarehouse, handleShowhideModalDelteWarehouse, dataWarehouseDelete, fetchProjectUser, action } = props;
+    const { showModalDeleteWarehouse, handleShowhideModalDelteWarehouse, dataWarehouseDelete, fetchProjectUser, getAllInWarehouse } = props;
     const { user } = React.useContext(UserContext);
     const { t, i18n } = useTranslation();
 
@@ -30,7 +30,7 @@ const ModalDeleteWarehouse = (props) => {
 
         if (res && +res.EC === 0) {
             await fetchProjectUser()
-
+            await getAllInWarehouse()
             handleShowhideModalDelteWarehouse()
 
         } else {

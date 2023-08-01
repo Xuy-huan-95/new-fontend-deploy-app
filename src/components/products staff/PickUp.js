@@ -38,15 +38,7 @@ const Pickup = (props) => {
     const [select, setSelect] = useState("")
     const [NumberProvince, setNumberProvince] = useState("")
 
-    const handleShowModal = async () => {
-        setShowModal(!showModal)
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
-    }
+
 
     const getShippingUnit = async () => {
         let res = await getAllShippingUnit()
@@ -411,6 +403,7 @@ const Pickup = (props) => {
 
     const fetchProjectUserWithUsername = async (item) => {
         if (!item) {
+            console.log("user.account.shippingunit_i", user.account)
             let res = await getProjectWithPaginationWithEmployerPickUp_user(+user.account.shippingunit_id, user.account.usersname, user.account.phone)
             if (res && +res.EC === 0) {
                 setListProjectbyuserStaff(res.DT)

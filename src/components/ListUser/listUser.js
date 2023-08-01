@@ -287,7 +287,7 @@ const Users = (props) => {
     const handleChangsortItem = async (sortBy, fieldSort) => {
         setSortBy(sortBy);
         setFieldSort(fieldSort)
-        if (fieldSort && fieldSort === "username") {
+        if (fieldSort && fieldSort === "usersname") {
             setSortName(!sortName)
             let _listUser = _.cloneDeep(listUser)
             _listUser = _.orderBy(_listUser, [fieldSort], [sortBy])
@@ -537,7 +537,7 @@ const Users = (props) => {
                                                 <span>
                                                     {t('List-user.Body.Four')}
                                                 </span>
-                                                <span className='mx-2' onClick={() => handleChangsortItem("asc", "username")} style={{ cursor: "pointer" }}>
+                                                <span className='mx-2' onClick={() => handleChangsortItem("asc", "usersname")} style={{ cursor: "pointer" }}>
                                                     <i className="fa fa-sort-amount-asc" aria-hidden="true"></i>
                                                 </span>
                                             </div>
@@ -546,7 +546,7 @@ const Users = (props) => {
                                                 <span>
                                                     {t('List-user.Body.Four')}
                                                 </span>
-                                                <span className='mx-2' onClick={() => handleChangsortItem("desc", "username")} style={{ cursor: "pointer" }}>
+                                                <span className='mx-2' onClick={() => handleChangsortItem("desc", "usersname")} style={{ cursor: "pointer" }}>
                                                     <i className="fa fa-sort-amount-desc" aria-hidden="true"></i>
                                                 </span>
                                             </div>

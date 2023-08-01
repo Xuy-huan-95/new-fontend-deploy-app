@@ -291,6 +291,14 @@ const DetailProduct = (props) => {
         }
 
     }
+
+
+    const handlePressEnter = (event) => {
+        if (event.keyCode == 13 && event.key === "Enter") {
+            createChat()
+        }
+    }
+
     const handleSelectProvince = (value) => {
         if (value > 0) {
             setStatusProvince(true)
@@ -763,7 +771,7 @@ const DetailProduct = (props) => {
         }
         formData.append("order", projects.order);
 
-        let dataCreateImage = await axios.post("https://huy-le-app.onrender.com/api/v6/upload-multiple-pic", formData, {
+        let dataCreateImage = await axios.post("http://localhost:3030/api/v6/upload-multiple-pic", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -1918,13 +1926,13 @@ const DetailProduct = (props) => {
                                                                                                             {actionModalFour === "4" ?
                                                                                                                 <>
 
-                                                                                                                    <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                    <img src={"http://localhost:3030/image/" + item.url} alt="" title='View detail image' />
 
                                                                                                                     <h5 className="card-title" onClick={() => handleDeleteImage(item.url)}> <i className="fa fa-times-circle" aria-hidden="true"></i></h5>
 
                                                                                                                 </>
                                                                                                                 :
-                                                                                                                <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                <img src={"http://localhost:3030/image/" + item.url} alt="" title='View detail image' />
 
 
                                                                                                             }
@@ -2045,7 +2053,7 @@ const DetailProduct = (props) => {
 
 
 
-                                                                                                        <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                        <img src={"http://localhost:3030/image/" + item.url} alt="" title='View detail image' />
 
 
 
@@ -2111,6 +2119,8 @@ const DetailProduct = (props) => {
                                                                                                                     className='form-control '
                                                                                                                     onChange={(event) => setchatEditContent(event.target.value)}
                                                                                                                     value={chatEditContent}
+                                                                                                                    onKeyDown={(event) => handlePressEnter(event)}
+
                                                                                                                 />
                                                                                                             </div>
 
@@ -2185,6 +2195,8 @@ const DetailProduct = (props) => {
                                                                                 className='chat-input col-9'
                                                                                 onChange={(event) => setchatContent(event.target.value)}
                                                                                 value={chatContent}
+                                                                                onKeyDown={(event) => handlePressEnter(event)}
+
                                                                             />
 
                                                                             <div className='icon col-1'>
@@ -2252,6 +2264,7 @@ const DetailProduct = (props) => {
                                                                                                                             id="exampleFormControlTextarea1"
                                                                                                                             rows="3"
                                                                                                                             className='form-control '
+                                                                                                                            onKeyDown={(event) => handlePressEnter(event)}
 
                                                                                                                             onChange={(event) => setchatEditContent(event.target.value)}
                                                                                                                             value={chatEditContent}
@@ -2337,6 +2350,8 @@ const DetailProduct = (props) => {
                                                                             className='chat-input col-8'
                                                                             onChange={(event) => setchatContent(event.target.value)}
                                                                             value={chatContent}
+                                                                            onKeyDown={(event) => handlePressEnter(event)}
+
                                                                         />
 
                                                                         <div className='icon col-1'>

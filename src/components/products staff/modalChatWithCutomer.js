@@ -144,6 +144,9 @@ const ModalChatWithCutomer = (props) => {
         }
     }
 
+
+
+
     let dataChat = {
         ProductId: dataChatOne.id,
         chatContent: chatContent,
@@ -203,7 +206,11 @@ const ModalChatWithCutomer = (props) => {
     }, [dataChatOne])
 
 
-
+    const handlePressEnter = (event) => {
+        if (event.keyCode == 13 && event.key === "Enter") {
+            createChat()
+        }
+    }
 
     const refesh = async () => {
         if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
@@ -337,12 +344,17 @@ const ModalChatWithCutomer = (props) => {
                                                 className='chat-input col-9'
                                                 onChange={(event) => setchatContent(event.target.value)}
                                                 value={chatContent}
+                                                onKeyDown={(event) => handlePressEnter(event)}
+
                                             />
 
                                             <div className='icon col-1'>
 
                                                 <span className='send' >
-                                                    <button className='btn btn-primary' onClick={() => createChat()}>
+                                                    <button className='btn btn-primary'
+                                                        onClick={() => createChat()}
+
+                                                    >
                                                         {t('detail.Chat.Three')}
                                                     </button>
                                                 </span>

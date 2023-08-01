@@ -42,9 +42,6 @@ const Warehouse_status_productId4 = (props) => {
     const [showModalCreateWarehouse, setShowModalCreateWarehouse] = useState(false);
     const [showModalDeleteWarehouse, setShowModalDeleteWarehouse] = useState(false);
     const [allWarehouseLenght, setAllWarehouseLenght] = useState("")
-    const [statusProduct1, setStatusProduct1] = useState("")
-    const [statusProduct2, setStatusProduct2] = useState("")
-    const [statusProduct3, setStatusProduct3] = useState("")
 
     const [isOpen, setIsOpen] = useState(false)
     const [sortDataSearch, setSortDataSearch] = useState(false)
@@ -93,35 +90,19 @@ const Warehouse_status_productId4 = (props) => {
     const handleShowhideModalEditWarehouse = async (item) => {
         setShowModalCreateWarehouse(!showModalCreateWarehouse)
         setAction("Update")
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
+
         setDataWarehouseEdit(item)
 
     }
     const handleShowhideModalEditWarehouseRepeat = async (item) => {
         setShowModalCreateWarehouse(!showModalCreateWarehouse)
         setAction("Repeat")
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
         setDataWarehouseRepeat(item)
 
     }
     const handleShowhideModalDelteWarehouse = async (item) => {
         setAction("Delete")
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
+
         setShowModalDeleteWarehouse(!showModalDeleteWarehouse)
         setDataWarehouseDelete(item)
     }
@@ -872,8 +853,8 @@ const Warehouse_status_productId4 = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {+item?.productstatuss_id === 1 &&
@@ -1073,8 +1054,8 @@ const Warehouse_status_productId4 = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {+item?.productstatuss_id === 1 &&

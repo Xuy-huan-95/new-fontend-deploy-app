@@ -106,12 +106,20 @@ const NavHeader = (props) => {
                                             {t('navigation.three')}
 
                                         </NavDropdown.Item>
-                                        <NavDropdown.Item href='/role' >
-                                            {t('navigation.Four')}
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Item href='/grouprole'>
-                                            {t('navigation.Five')}
-                                        </NavDropdown.Item>
+                                        {user?.account?.groupName === "Customer"
+                                            ?
+                                            <></>
+                                            :
+                                            <>
+                                                <NavDropdown.Item href='/role' >
+                                                    {t('navigation.Four')}
+                                                </NavDropdown.Item>
+                                                <NavDropdown.Item href='/grouprole'>
+                                                    {t('navigation.Five')}
+                                                </NavDropdown.Item>
+                                            </>
+                                        }
+
 
 
 

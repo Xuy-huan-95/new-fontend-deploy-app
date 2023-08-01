@@ -56,7 +56,6 @@ const Warehouse = (props) => {
         let res = await getAllNumberSatusProductInWarehouse(user.account.phone)
         if (res && +res.EC === 0) {
             setAllWarehouseLenght(res.DT)
-            console.log("res.DT", res.DT)
             if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
                 await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
             }
@@ -874,8 +873,8 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {item?.productstatuss_id === 1 &&
@@ -1074,8 +1073,8 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("http://localhost:3030/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"http://localhost:3030/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {item?.productstatuss_id === 1 &&
@@ -1308,6 +1307,7 @@ const Warehouse = (props) => {
                     dataWarehouseDelete={dataWarehouseDelete}
                     fetchProjectUser={fetchProjectUser}
                     action={action}
+                    getAllInWarehouse={getAllInWarehouse}
 
                 />
             </div >

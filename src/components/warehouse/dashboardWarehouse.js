@@ -91,6 +91,7 @@ const DashboardWarehouse = (props) => {
                     Number: item.number,
                 })
             })
+            console.log("res.DT", res.DT)
             setDataTime(data)
         }
     }
