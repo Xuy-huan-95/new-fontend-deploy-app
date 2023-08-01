@@ -1413,25 +1413,25 @@ const Products = (props) => {
                                                                                             ? item?.Warehouse?.product
                                                                                             : "chưa cập nhật "}
                                                                                         </td>
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán toàn bộ"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán toàn bộ"
                                                                                             &&
-                                                                                            <td >{item?.Status_Payment?.status ?
+                                                                                            <td >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "blue", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 :
                                                                                                 "Đang xử lý"
                                                                                             }</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Thanh toán khi giao hàng"
+                                                                                        {item?.Statuspayment?.status === "Thanh toán khi giao hàng"
                                                                                             &&
-                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "violet", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán trước một phần"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán trước một phần"
                                                                                             &&
-                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "#A0522D", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
@@ -1546,25 +1546,25 @@ const Products = (props) => {
                                                                                             ? item?.Warehouse?.product
                                                                                             : "chưa cập nhật "}
                                                                                         </td>
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán toàn bộ"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán toàn bộ"
                                                                                             &&
-                                                                                            <td >{item?.Status_Payment?.status ?
+                                                                                            <td >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "blue", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 :
                                                                                                 "Đang xử lý"
                                                                                             }</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Thanh toán khi giao hàng"
+                                                                                        {item?.Statuspayment?.status === "Thanh toán khi giao hàng"
                                                                                             &&
-                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "violet", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán trước một phần"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán trước một phần"
                                                                                             &&
-                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "#A0522D", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
@@ -1673,25 +1673,25 @@ const Products = (props) => {
                                                                                             ? item?.Warehouse?.product
                                                                                             : "chưa cập nhật "}
                                                                                         </td>
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán toàn bộ"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán toàn bộ"
                                                                                             &&
-                                                                                            <td >{item?.Status_Payment?.status ?
+                                                                                            <td >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "blue", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 :
                                                                                                 "Đang xử lý"
                                                                                             }</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Thanh toán khi giao hàng"
+                                                                                        {item?.Statuspayment?.status === "Thanh toán khi giao hàng"
                                                                                             &&
-                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "violet", fontWeight: "700" }}>{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "violet", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
                                                                                         }
-                                                                                        {item?.Status_Payment?.status === "Đã thanh toán trước một phần"
+                                                                                        {item?.Statuspayment?.status === "Đã thanh toán trước một phần"
                                                                                             &&
-                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Status_Payment?.status ?
+                                                                                            <td style={{ color: "#A0522D", fontWeight: "700" }} >{item?.Statuspayment?.status ?
                                                                                                 <div style={{ backgroundColor: "#A0522D", width: "20px", height: "20px", borderRadius: "50%" }}></div>
                                                                                                 : "Đang xử lý"}</td>
 
