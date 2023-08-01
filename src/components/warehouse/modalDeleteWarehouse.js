@@ -31,24 +31,13 @@ const ModalDeleteWarehouse = (props) => {
         })
 
         if (res && +res.EC === 0) {
-            window.location.reload()
             await fetchProjectUser()
-            if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-            }
-            if (user?.account?.groupName === "Dev") {
-                await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-            }
+
             handleShowhideModalDelteWarehouse()
 
         } else {
             toast.error(res.EM)
-            if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-            }
-            if (user?.account?.groupName === "Dev") {
-                await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-            }
+
 
         }
     }
