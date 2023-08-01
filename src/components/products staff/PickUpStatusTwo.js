@@ -33,15 +33,7 @@ const PickUpStatusTwo = (props) => {
     const [shipping, setShipping] = useState([])
     const [shippingUnit, setShippingUnit] = useState([])
     const [select, setSelect] = useState("")
-    const handleShowModal = async () => {
-        setShowModal(!showModal)
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
-    }
+
 
     const getShippingUnit = async () => {
         let res = await getAllShippingUnit()
@@ -84,12 +76,7 @@ const PickUpStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -110,12 +97,7 @@ const PickUpStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
 
@@ -156,12 +138,7 @@ const PickUpStatusTwo = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
+
 
     }, [currentPage])
 

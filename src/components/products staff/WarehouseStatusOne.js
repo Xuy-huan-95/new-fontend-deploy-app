@@ -59,56 +59,37 @@ const WarehouseStatusOne = (props) => {
             if (!item.User_Warehouse && !item.Number_Warehouse && !item.Status_product) {
                 let res = await updateWarehouseInProject(item.id, +user.account.shippingunit_id, "", user.account.usersname, user.account.phone, 1, new Date(), "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đã nhập kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đã nhập kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Warehouse && item.Number_Warehouse) {
                 let res = await updateWarehouseInProject(item.id, +user.account.shippingunit_id, null, null, null, 0, "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn nhập kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn nhập kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
 
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
         } else {
@@ -121,22 +102,12 @@ const WarehouseStatusOne = (props) => {
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Warehouse && item.Number_Warehouse) {
@@ -147,11 +118,6 @@ const WarehouseStatusOne = (props) => {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
                         }
                     }
 
@@ -159,12 +125,7 @@ const WarehouseStatusOne = (props) => {
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
         }
@@ -192,12 +153,7 @@ const WarehouseStatusOne = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -219,12 +175,7 @@ const WarehouseStatusOne = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
 
@@ -237,27 +188,17 @@ const WarehouseStatusOne = (props) => {
         if (!select) {
             let res = await updateWarehouseInProject(item.id, +user.account.shippingunit_id, "", user.account.usersname, user.account.phone, 2, item.warehouse_time, new Date())
             if (res && +res.EC === 0) {
-                let abc = await createNotification(item.id, item.order, "đơn hàng đã xuất kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                let abc = await createNotification(item.id, item.order, "đơn hàng đã xuất kho", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingunit_id)
                 if (abc && +abc.EC === 0) {
                     await fetchProjectUser(select)
                     if (valueSearch) {
                         await HandleSearchData(valueSearch)
                     }
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let res = await updateWarehouseInProject(item.id, +select, "", user.account.usersname, user.account.phone, 2, item.warehouse_time, new Date())
@@ -268,21 +209,11 @@ const WarehouseStatusOne = (props) => {
                     if (valueSearch) {
                         await HandleSearchData(valueSearch)
                     }
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
     }
@@ -319,12 +250,7 @@ const WarehouseStatusOne = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
+
 
     }, [])
 

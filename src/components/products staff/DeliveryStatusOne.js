@@ -146,7 +146,7 @@ const DeliveryStatusOne = (props) => {
         if (!select) {
             let res = await updateDeliveryInProject(item.id, +user.account.shippingunit_id, 2, user.account.usersname, user.account.phone, "", "", item.Delivery_time, new Date(), "")
             if (res && +res.EC === 0) {
-                let abc = await createNotification(item.id, item.order, "đơn hàng giao xong", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                let abc = await createNotification(item.id, item.order, "đơn hàng giao xong", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingunit_id)
                 if (abc && +abc.EC === 0) {
                     await fetchProjectUser(select)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
@@ -195,7 +195,7 @@ const DeliveryStatusOne = (props) => {
             if (!item.User_Delivery && !item.Number_Delivery) {
                 let res = await updateDeliveryInProject(item.id, +user.account.shippingunit_id, 1, user.account.usersname, user.account.phone, "", "", new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang giao", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang giao", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
@@ -223,7 +223,7 @@ const DeliveryStatusOne = (props) => {
 
                 let res = await updateDeliveryInProject(item.id, +user.account.shippingunit_id, 0, "", "", "", "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn giao", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn giao", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {

@@ -86,12 +86,7 @@ const WarehouseStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -113,12 +108,7 @@ const WarehouseStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
 
@@ -144,12 +134,7 @@ const WarehouseStatusTwo = (props) => {
             let res = await getDataSortByWarehouse(+select, 2)
             if (res && +res.EC === 0) {
                 setListProjectbyStaffWarehouse(res.DT)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
 
@@ -158,12 +143,7 @@ const WarehouseStatusTwo = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
+
 
     }, [])
 

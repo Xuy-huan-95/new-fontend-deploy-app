@@ -91,12 +91,7 @@ const Pickup = (props) => {
                 SetIsSearch(false)
                 await fetchProjectUserWithUsername()
                 await fetchProjectUser()
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -146,36 +141,22 @@ const Pickup = (props) => {
                             await HandleSearchData(valueSearch)
 
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     } else {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
 
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             } else {
 
@@ -189,12 +170,8 @@ const Pickup = (props) => {
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     } else {
                         toast.error(res.EM)
                         await fetchProjectUserWithUsername(select)
@@ -202,24 +179,15 @@ const Pickup = (props) => {
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
 
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
 
@@ -235,34 +203,21 @@ const Pickup = (props) => {
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     } else {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             } else {
 
@@ -275,34 +230,21 @@ const Pickup = (props) => {
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     } else {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
 
-                        } if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                         }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                 }
             }
 
@@ -328,12 +270,7 @@ const Pickup = (props) => {
 
                     }
                 } else {
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                     await fetchProjectUserWithUsername(select)
                     await fetchProjectUser(select)
                     if (valueSearch) {
@@ -344,24 +281,14 @@ const Pickup = (props) => {
 
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         } else {
             let res = await updatePickupInProject(+select, item.id, user.account.usersname, user.account.phone, 2, item.pickup_time, new Date())
             if (res && +res.EC === 0) {
                 let abc = await createNotification(item.id, item.order, "đơn hàng đã lấy thành công", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, select)
                 if (abc && +abc.EC === 0) {
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                     await fetchProjectUserWithUsername(select)
                     await fetchProjectUser(select)
                     if (valueSearch) {
@@ -369,12 +296,7 @@ const Pickup = (props) => {
 
                     }
                 } else {
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                    }
+
                     await fetchProjectUserWithUsername(select)
                     await fetchProjectUser(select)
                     if (valueSearch) {
@@ -385,12 +307,7 @@ const Pickup = (props) => {
 
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
         }
     }
@@ -403,7 +320,6 @@ const Pickup = (props) => {
 
     const fetchProjectUserWithUsername = async (item) => {
         if (!item) {
-            console.log("user.account.shippingunit_i", user.account)
             let res = await getProjectWithPaginationWithEmployerPickUp_user(+user.account.shippingunit_id, user.account.usersname, user.account.phone)
             if (res && +res.EC === 0) {
                 setListProjectbyuserStaff(res.DT)
@@ -415,12 +331,7 @@ const Pickup = (props) => {
                 }
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
-                }
+
             }
 
         } else {

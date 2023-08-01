@@ -13,6 +13,7 @@ const NotificationProvider = ({ children }) => {
 
 
     const getALlListNotification = async (shippingUnit_Id, phone, position, name) => {
+        console.log("shippingUnit_Id, phone, position", shippingUnit_Id, phone, position)
         if (!shippingUnit_Id) {
 
             let res = await getAllNotificaltion(shippingUnit_Id, phone)
@@ -52,6 +53,7 @@ const NotificationProvider = ({ children }) => {
                 }
                 if (position === "Nhân viên giao hàng") {
                     let data = res.DT.filter(item => +item.Unit === +shippingUnit_Id)
+                    console.log("data-56", data)
                     let dataOne = data.filter(item => item.Change_content !== "thay đổi thông tin đơn hàng" && item.Change_content !== "nhân viên vừa chat" && item.Change_content !== "thay đổi địa chỉ người bán" && item.Change_content !== "thêm mới"
                         && item.Change_content !== "đơn hàng đang lấy hàng" && item.Change_content !== "đơn hàng trì hoãn" && item.Change_content !== "đơn hàng đã lấy thành công" &&
                         item.Change_content !== "đơn hàng trì hoãn nhập kho" && item.Change_content !== "đơn hàng đã nhập kho"
