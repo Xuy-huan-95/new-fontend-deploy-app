@@ -25,7 +25,6 @@ instance.interceptors.request.use(function (config) {
     console.log(error)
 
     return Promise.reject(error);
-    console.log(error)
 });
 
 // Add a response interceptor

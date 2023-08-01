@@ -108,6 +108,21 @@ const ModalCreateWarehouse = (props) => {
 
 
     const checkValueDate = () => {
+        if (action === "Update") return true
+
+        setValidInput(draft => {
+            draft.image = true;
+            draft.Product_Prince = true;
+            draft.Number = true;
+            draft.Suppliers = true;
+            draft.unit = true;
+            draft.unitMoney = true;
+            draft.Suppliers_address = true;
+            draft.Suppliers_phone = true;
+
+        }
+        )
+
         let arr = ["Product", "Product_Prince", "Number", "Suppliers", "unit", "unitMoney", "Suppliers_address", "Suppliers_phone", "product_statusId"]
         let check = true;
         const regxPhone = /^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/;
@@ -223,6 +238,7 @@ const ModalCreateWarehouse = (props) => {
 
     }
     const handleSubmit = async () => {
+        console.log("listdata", listdata)
         let arr = ["Product", "Product_Prince", "Number", "Suppliers", "unit", "unitMoney", "Suppliers_address", "Suppliers_phone", "product_statusId"]
 
         let check = checkValueDate();
@@ -379,7 +395,6 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Update") {
-
             setprevireImage("https://huy-le-app.onrender.com/image/" + dataWarehouseEdit.image)
             setListdata(draft => {
                 draft.id = dataWarehouseEdit.id
@@ -392,7 +407,7 @@ const ModalCreateWarehouse = (props) => {
                 draft.Suppliers_address = dataWarehouseEdit.Suppliers_address;
                 draft.Suppliers_phone = dataWarehouseEdit.Suppliers_phone;
                 draft.image = dataWarehouseEdit.image;
-                draft.product_statusId = dataWarehouseEdit.product_statusId;
+                draft.product_statusId = dataWarehouseEdit.productstatuss_id;
 
             })
         }
