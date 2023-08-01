@@ -728,7 +728,7 @@ const ModalCreate = (props) => {
 
                             </select >
                         </div>
-                        <div className='col-12 col-sm-12 form-group py-3 image'>
+                        <div className='col-12 col-sm-12 form-group py-3 image' style={{ width: "100%" }}>
                             <div className='image-icon'>
                                 <input type="file" id='previewimage' hidden
                                     onChange={(event) => handleOnchangeInput(event.target.files, "image")}
