@@ -259,12 +259,7 @@ const ModalCreateWarehouse = (props) => {
                     handleShowhideModalCreateWarehouse()
                     await getAllInWarehouse()
                     await fetchProjectUser()
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                     setprevireImage("")
                     setListdata(draft => {
                         draft.Product = "";
@@ -302,12 +297,7 @@ const ModalCreateWarehouse = (props) => {
                     history.push("/Warehouse")
                     handleShowhideModalCreateWarehouse()
                     await getAllInWarehouse()
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                     await fetchProjectUser()
                     setprevireImage("")
                     setListdata(draft => {
@@ -337,14 +327,8 @@ const ModalCreateWarehouse = (props) => {
 
 
                 if (res && +res.EC === 0) {
-                    console.log("res>DT", res.DT)
                     toast.success(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                     handleShowhideModalCreateWarehouse()
                     setprevireImage("")
                     setListdata(draft => {
@@ -394,7 +378,8 @@ const ModalCreateWarehouse = (props) => {
 
             })
         }
-        if (action === "Update" && dataWarehouseEdit) {
+        if (action === "Update") {
+
             setprevireImage("https://huy-le-app.onrender.com/image/" + dataWarehouseEdit.image)
             setListdata(draft => {
                 draft.id = dataWarehouseEdit.id
@@ -412,7 +397,6 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Repeat" && dataWarehouseRepeat) {
-            console.log("dataWarehouseRepeat", dataWarehouseRepeat.image)
             setprevireImage("https://huy-le-app.onrender.com/image/" + dataWarehouseRepeat.image)
             setListdata(draft => {
                 draft.Product = dataWarehouseRepeat.product;

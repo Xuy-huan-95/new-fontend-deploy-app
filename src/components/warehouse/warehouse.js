@@ -32,8 +32,8 @@ const Warehouse = (props) => {
     const [currentLimit, setCurrentLimit] = useState(7)
     const [totalPage, setTotalPage] = useState(0)
     const [action, setAction] = useState("")
-    const [dataWarehouseEdit, setDataWarehouseEdit] = useState("")
-    const [dataWarehouseRepeat, setDataWarehouseRepeat] = useState("")
+    const [dataWarehouseEdit, setDataWarehouseEdit] = useState([])
+    const [dataWarehouseRepeat, setDataWarehouseRepeat] = useState([])
 
     const [dataWarehouseDelete, setDataWarehouseDelete] = useState("")
 
@@ -42,9 +42,7 @@ const Warehouse = (props) => {
     const [showModalCreateWarehouse, setShowModalCreateWarehouse] = useState(false);
     const [showModalDeleteWarehouse, setShowModalDeleteWarehouse] = useState(false);
     const [allWarehouseLenght, setAllWarehouseLenght] = useState("")
-    const [statusProduct1, setStatusProduct1] = useState("")
-    const [statusProduct2, setStatusProduct2] = useState("")
-    const [statusProduct3, setStatusProduct3] = useState("")
+
 
     const [isOpen, setIsOpen] = useState(false)
     const [sortDataSearch, setSortDataSearch] = useState(false)
@@ -95,12 +93,6 @@ const Warehouse = (props) => {
     const handleShowhideModalEditWarehouse = async (item) => {
         setShowModalCreateWarehouse(!showModalCreateWarehouse)
         setAction("Update")
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
         setDataWarehouseEdit(item)
 
     }

@@ -6,13 +6,11 @@ import { toast } from 'react-toastify';
 import { useImmer } from "use-immer";
 import { UserContext } from "../../contexApi/UserContext"
 import { updateWarehouse } from "../services/ProjectService"
-import { NotificationContext } from "../../contexApi/NotificationContext"
 import { useTranslation, Trans } from 'react-i18next';
 
 const ModalDeleteWarehouse = (props) => {
     const { showModalDeleteWarehouse, handleShowhideModalDelteWarehouse, dataWarehouseDelete, fetchProjectUser, action } = props;
     const { user } = React.useContext(UserContext);
-    const { list, getALlListNotification, listStaff } = React.useContext(NotificationContext);
     const { t, i18n } = useTranslation();
 
 
