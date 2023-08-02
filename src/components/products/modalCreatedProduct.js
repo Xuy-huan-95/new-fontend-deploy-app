@@ -1506,7 +1506,7 @@ const CreateNewProduct = (props) => {
                                                             encType='multipart/form-data'
                                                             action='upload-multiple-pic'
                                                         >
-                                                            <div className='image col-12'>
+                                                            <div className='image col-12' style={{ width: "100%" }}>
                                                                 <div className='row'>
                                                                     <div className='col-12 d-flex icon '>
 
