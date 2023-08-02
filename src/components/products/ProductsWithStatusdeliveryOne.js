@@ -684,7 +684,7 @@ const ProductsWithStatusdeliveryOne = (props) => {
                                                                         <div className='my-2 d-flex align-item-center gap-2'>
                                                                             <div style={{ backgroundColor: "orange", width: "30px", height: "30px", borderRadius: "50%" }}></div>
                                                                             <div style={{ fontSize: "20px", fontWeight: "700" }}>
-                                                                                {t('Product.tittleTableTwo')}
+                                                                                {t('Product.tittleTableThree')}
 
                                                                             </div>
                                                                         </div>
