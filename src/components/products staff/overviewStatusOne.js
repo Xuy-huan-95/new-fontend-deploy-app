@@ -53,20 +53,15 @@ const OverviewStatusOne = (props) => {
     const update = async (item) => {
         if (!select) {
             if (!item.User_Overview && !item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 1, new Date(), "", "")
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 1, new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
@@ -74,49 +69,34 @@ const OverviewStatusOne = (props) => {
                 }
             }
             if (item.User_Overview && item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, "", "", 0, "", "", "")
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, "", "", 0, "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
 
         } else {
             if (!item.User_Overview && !item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 1, new Date(), "", "")
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 1, new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
@@ -126,28 +106,18 @@ const OverviewStatusOne = (props) => {
             if (item.User_Overview && item.Number_Overview) {
                 let res = await updateOverviewInProject(item.id, +select, "", "", 0, "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
 
@@ -162,14 +132,14 @@ const OverviewStatusOne = (props) => {
             setvalueSearch(value)
             if (data) {
                 SetIsSearch(true)
-                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingUnit_Id)
+                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingunit_id)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 1)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 1)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -177,12 +147,7 @@ const OverviewStatusOne = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -191,12 +156,12 @@ const OverviewStatusOne = (props) => {
                 SetIsSearch(true)
                 let res = await getDataSearchByEmplyer(data, user.account.Position, +select)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 1)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 1)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -204,12 +169,7 @@ const OverviewStatusOne = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         }
 
@@ -219,113 +179,73 @@ const OverviewStatusOne = (props) => {
     const complete = async (item) => {
         if (!select) {
             if (item.Mode_of_payment === "Nhận tiền thanh toán qua tài khoản ngân hàng") {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 2, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 2, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Overview && item.Number_Overview && item.Mode_of_payment === "Nhận tiền thanh toán ở trung tâm") {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 3, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 3, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
 
         } else {
             if (item.Mode_of_payment === "Nhận tiền thanh toán qua tài khoản ngân hàng") {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 2, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 2, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Overview && item.Number_Overview && item.Mode_of_payment === "Nhận tiền thanh toán ở trung tâm") {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 3, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 3, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
         }
@@ -337,24 +257,26 @@ const OverviewStatusOne = (props) => {
 
     const fetchProjectUser = async (select) => {
         if (!select) {
-            let res = await getDataSortByOverview(+user.account.shippingUnit_Id, 1)
+            let res = await getDataSortByOverview(+user.account.shippingunit_id, 1)
             if (res && +res.EC === 0) {
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                } setListProjectbyStaffOverview(res.DT)
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
+                }
+                setListProjectbyStaffOverview(res.DT)
             }
         } else {
             let res = await getDataSortByOverview(+select, 1)
             if (res && +res.EC === 0) {
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                } setListProjectbyStaffOverview(res.DT)
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
+                }
+                setListProjectbyStaffOverview(res.DT)
             }
         }
 
@@ -363,13 +285,6 @@ const OverviewStatusOne = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
-
     }, [])
 
     useEffect(() => {
@@ -601,7 +516,7 @@ const OverviewStatusOne = (props) => {
 
                                                                                 </span>
                                                                             </td>
-                                                                            {item.receiveMoneyId === 1 &&
+                                                                            {item.statusreceivedmoney_id === 1 &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
@@ -649,7 +564,7 @@ const OverviewStatusOne = (props) => {
                                                                             </td>
 
 
-                                                                            {item.receiveMoneyId === 1 && user?.account?.phone == item.Number_Overview &&
+                                                                            {item.statusreceivedmoney_id === 1 && user?.account?.phone == item.Number_Overview &&
                                                                                 < td >
                                                                                     <button className='btn btn-success mb-3' onClick={() => complete(item)}>
                                                                                         {t('Accountant-employer.Body.Seventeen')}
@@ -660,7 +575,7 @@ const OverviewStatusOne = (props) => {
                                                                                     </button>
                                                                                 </td>
                                                                             }
-                                                                            {item.receiveMoneyId === 1 && user?.account?.phone !== item.Number_Overview &&
+                                                                            {item.statusreceivedmoney_id === 1 && user?.account?.phone !== item.Number_Overview &&
                                                                                 < td >
 
                                                                                     <span style={{ color: "green", fontWeight: "700" }}>{t('Accountant-employer.Body.Fifteen')}</span>
@@ -764,7 +679,7 @@ const OverviewStatusOne = (props) => {
 
                                                                             </span>
                                                                         </td>
-                                                                        {item.receiveMoneyId === 1 &&
+                                                                        {item.statusreceivedmoney_id === 1 &&
                                                                             <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                         }
@@ -812,7 +727,7 @@ const OverviewStatusOne = (props) => {
                                                                         </td>
 
 
-                                                                        {item.receiveMoneyId === 1 && user?.account?.phone == item.Number_Overview &&
+                                                                        {item.statusreceivedmoney_id === 1 && user?.account?.phone == item.Number_Overview &&
                                                                             < td >
 
                                                                                 < td >
@@ -827,7 +742,7 @@ const OverviewStatusOne = (props) => {
 
                                                                             </td>
                                                                         }
-                                                                        {item.receiveMoneyId === 1 && user?.account?.phone !== item.Number_Overview &&
+                                                                        {item.statusreceivedmoney_id === 1 && user?.account?.phone !== item.Number_Overview &&
                                                                             < td >
 
                                                                                 <span style={{ color: "green", fontWeight: "700" }}>{t('Accountant-employer.Body.Fifteen')}</span>

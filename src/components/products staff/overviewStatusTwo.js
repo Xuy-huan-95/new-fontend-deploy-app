@@ -58,14 +58,14 @@ const OverviewStatusTwo = (props) => {
             setvalueSearch(value)
             if (data) {
                 SetIsSearch(true)
-                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingUnit_Id)
+                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingunit_id)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 2)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 2)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -73,12 +73,7 @@ const OverviewStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -87,12 +82,12 @@ const OverviewStatusTwo = (props) => {
                 SetIsSearch(true)
                 let res = await getDataSearchByEmplyer(data, user.account.Position, +select)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 2)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 2)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -100,12 +95,7 @@ const OverviewStatusTwo = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         }
 
@@ -117,14 +107,14 @@ const OverviewStatusTwo = (props) => {
 
     const fetchProjectUser = async (select) => {
         if (!select) {
-            let res = await getDataSortByOverview(+user.account.shippingUnit_Id, 2)
+            let res = await getDataSortByOverview(+user.account.shippingunit_id, 2)
             if (res && +res.EC === 0) {
                 setListProjectbyStaffOverview(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             }
         } else {
@@ -132,10 +122,10 @@ const OverviewStatusTwo = (props) => {
             if (res && +res.EC === 0) {
                 setListProjectbyStaffOverview(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             }
         }
@@ -145,13 +135,6 @@ const OverviewStatusTwo = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
-
     }, [])
 
     useEffect(() => {
@@ -379,7 +362,7 @@ const OverviewStatusTwo = (props) => {
 
                                                                             </span>
                                                                         </td>
-                                                                        {item.receiveMoneyId === 2 &&
+                                                                        {item.statusreceivedmoney_id === 2 &&
                                                                             <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                         }
@@ -427,7 +410,7 @@ const OverviewStatusTwo = (props) => {
                                                                         </td>
 
 
-                                                                        {item.receiveMoneyId === 2 &&
+                                                                        {item.statusreceivedmoney_id === 2 &&
                                                                             < td >
 
                                                                                 <span className='mb-3' style={{ color: "green", fontWeight: "600" }}  >
@@ -536,7 +519,7 @@ const OverviewStatusTwo = (props) => {
 
                                                                         </span>
                                                                     </td>
-                                                                    {item.receiveMoneyId === 2 &&
+                                                                    {item.statusreceivedmoney_id === 2 &&
                                                                         <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                     }
@@ -584,7 +567,7 @@ const OverviewStatusTwo = (props) => {
                                                                     </td>
 
 
-                                                                    {item.receiveMoneyId === 2 &&
+                                                                    {item.statusreceivedmoney_id === 2 &&
                                                                         < td >
 
                                                                             <span className='mb-3' style={{ color: "green", fontWeight: "600" }}  >

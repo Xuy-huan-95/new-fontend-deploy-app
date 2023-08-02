@@ -63,14 +63,14 @@ const Overview = (props) => {
             setvalueSearch(value)
             if (data) {
                 SetIsSearch(true)
-                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingUnit_Id)
+                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingunit_id)
                 if (res && +res.EC === 0) {
                     let data = res.DT.filter(item => item.statusDeliveryId === 2)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -79,12 +79,7 @@ const Overview = (props) => {
                 SetIsSearch(false)
                 await fetchProjectUserWithUsername(select)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -95,10 +90,10 @@ const Overview = (props) => {
                 if (res && +res.EC === 0) {
                     let data = res.DT.filter(item => item.statusDeliveryId === 2)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -107,12 +102,7 @@ const Overview = (props) => {
                 SetIsSearch(false)
                 await fetchProjectUserWithUsername(select)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         }
 
@@ -122,22 +112,18 @@ const Overview = (props) => {
     const update = async (item) => {
         if (!select) {
             if (!item.User_Overview && !item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 1, new Date(), "", "")
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 1, new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
+                        console.log("123")
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
@@ -145,38 +131,28 @@ const Overview = (props) => {
                 }
             }
             if (item.User_Overview && item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, "", "", 0, "", "", "")
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, "", "", 0, "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
         } else {
             if (!item.User_Overview && !item.Number_Overview) {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 1, new Date(), "", "")
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 1, new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
@@ -184,12 +160,7 @@ const Overview = (props) => {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
@@ -199,28 +170,23 @@ const Overview = (props) => {
             if (item.User_Overview && item.Number_Overview) {
                 let res = await updateOverviewInProject(item.id, +select, "", "", 0, "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
 
                 } else {
                     toast.error(res.EM)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                 }
             }
@@ -231,9 +197,9 @@ const Overview = (props) => {
     const complete = async (item) => {
         if (!select) {
             if (item.Mode_of_payment === "Nhận tiền thanh toán qua tài khoản ngân hàng") {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 2, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 2, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
@@ -241,55 +207,35 @@ const Overview = (props) => {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Overview && item.Number_Overview && item.Mode_of_payment === "Nhận tiền thanh toán ở trung tâm") {
-                let res = await updateOverviewInProject(item.id, +user.account.shippingUnit_Id, user.account.username, user.account.phone, 3, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 3, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
         } else {
             if (item.Mode_of_payment === "Nhận tiền thanh toán qua tài khoản ngân hàng") {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 2, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 2, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 0, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
@@ -297,48 +243,28 @@ const Overview = (props) => {
                             await HandleSearchData(valueSearch)
                         }
 
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
             if (item.User_Overview && item.Number_Overview && item.Mode_of_payment === "Nhận tiền thanh toán ở trung tâm") {
-                let res = await updateOverviewInProject(item.id, +select, user.account.username, user.account.phone, 3, item.Overview_time, new Date(), 1)
+                let res = await updateOverviewInProject(item.id, +select, user.account.usersname, user.account.phone, 3, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.username}-${user.account.phone}`, item.createdBy, 0, 1, select)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, select)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUserWithUsername(select)
                         await fetchProjectUser(select)
                         if (valueSearch) {
                             await HandleSearchData(valueSearch)
                         }
-                        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                            await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                        }
-                        if (user?.account?.groupName === "Dev") {
-                            await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                        }
+
                     }
                 } else {
                     toast.error(res.EM)
-                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                    }
-                    if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                    }
+
                 }
             }
         }
@@ -350,42 +276,32 @@ const Overview = (props) => {
 
     const fetchProjectUserWithUsername = async (select) => {
         if (!select) {
-            let res = await getProjectWithPaginationWithEmployerOverview_user(+user.account.shippingUnit_Id, user.account.username, user.account.phone)
+            let res = await getProjectWithPaginationWithEmployerOverview_user(+user.account.shippingunit_id, user.account.usersname, user.account.phone)
             if (res && +res.EC === 0) {
                 setListProjectbyuserStaff(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         } else {
-            let res = await getProjectWithPaginationWithEmployerOverview_user(+select, user.account.username, user.account.phone)
+            let res = await getProjectWithPaginationWithEmployerOverview_user(+select, user.account.usersname, user.account.phone)
             if (res && +res.EC === 0) {
                 setListProjectbyuserStaff(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             } else {
                 toast.error(res.EM)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         }
 
@@ -393,17 +309,17 @@ const Overview = (props) => {
     }
     const fetchProjectUser = async (select) => {
         if (!select) {
-            let res = await getProjectWithPaginationWithEmployerOverview(currentPage, currentLimit, +user.account.shippingUnit_Id)
+            let res = await getProjectWithPaginationWithEmployerOverview(currentPage, currentLimit, +user.account.shippingunit_id)
             if (res && +res.EC === 0) {
                 setTotalPage(+res.DT.totalPage)
                 if (res.DT.totalPage > 0 && res.DT.dataProject.length === 0) {
                     setCurrentPage(+res.DT.totalPage)
-                    await getProjectWithPaginationWithEmployerOverview(+res.DT.totalPage, currentLimit, +user.account.shippingUnit_Id)
+                    await getProjectWithPaginationWithEmployerOverview(+res.DT.totalPage, currentLimit, +user.account.shippingunit_id)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                 }
                 if (res.DT.totalPage > 0 && res.DT.dataProject.length > 0) {
@@ -411,15 +327,21 @@ const Overview = (props) => {
                     if (data) {
                         setListProjectbyStaffOverview(data)
                     }
+                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
+                    }
+                    if (user?.account?.groupName === "Dev") {
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
+                    }
                 }
                 if (res.DT.totalPage === 0 && res.DT.dataProject.length === 0) {
                     let data = res.DT.dataProject
                     setListProjectbyStaffOverview(data)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                 }
             }
@@ -431,10 +353,10 @@ const Overview = (props) => {
                     setCurrentPage(+res.DT.totalPage)
                     await getProjectWithPaginationWithEmployerOverview(+res.DT.totalPage, currentLimit, +select)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                 }
                 if (res.DT.totalPage > 0 && res.DT.dataProject.length > 0) {
@@ -442,15 +364,21 @@ const Overview = (props) => {
                     if (data) {
                         setListProjectbyStaffOverview(data)
                     }
+                    if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
+                    }
+                    if (user?.account?.groupName === "Dev") {
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
+                    }
                 }
                 if (res.DT.totalPage === 0 && res.DT.dataProject.length === 0) {
                     let data = res.DT.dataProject
                     setListProjectbyStaffOverview(data)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                 }
             }
@@ -462,12 +390,7 @@ const Overview = (props) => {
     }
 
     useEffect(() => {
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
+
         fetchProjectUser();
         fetchProjectUserWithUsername()
     }, [currentPage])
@@ -742,6 +665,7 @@ const Overview = (props) => {
                                                         {listProjectbyStaffOverview && listProjectbyStaffOverview.length > 0
                                                             ?
                                                             listProjectbyStaffOverview.map((item, index) => {
+                                                                console.log("item", item)
                                                                 return (
                                                                     <tbody key={`item-${index}`}>
 
@@ -760,11 +684,11 @@ const Overview = (props) => {
                                                                                 </span>
                                                                             </td>
 
-                                                                            {item.receiveMoneyId === 0 &&
+                                                                            {item.statusreceivedmoney_id === 0 &&
                                                                                 <td style={{ color: "orange", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
-                                                                            {item.receiveMoneyId > 0 &&
+                                                                            {item.statusreceivedmoney_id > 0 &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
@@ -810,7 +734,7 @@ const Overview = (props) => {
                                                                                 {item.Number_Overview && item.Number_Overview}
 
                                                                             </td>
-                                                                            {item.receiveMoneyId === 0 &&
+                                                                            {item.statusreceivedmoney_id === 0 &&
                                                                                 <td>
                                                                                     <button className='btn btn-danger mb-3' onClick={() => update(item)} >
                                                                                         {t('Accountant-employer.Body.Fourteen')}
@@ -819,19 +743,19 @@ const Overview = (props) => {
                                                                                 </td>
 
                                                                             }
-                                                                            {item.receiveMoneyId === 1 &&
+                                                                            {item.statusreceivedmoney_id === 1 &&
                                                                                 <td style={{ color: "orange", fontWeight: "600" }}>
                                                                                     {t('Accountant-employer.Body.Fifteen')}
                                                                                 </td>
 
                                                                             }
-                                                                            {item.receiveMoneyId === 2 &&
+                                                                            {item.statusreceivedmoney_id === 2 &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>
                                                                                     {t('Accountant-employer.Body.Sixteen')}
                                                                                 </td>
 
                                                                             }
-                                                                            {item.receiveMoneyId === 3 &&
+                                                                            {item.statusreceivedmoney_id === 3 &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>
                                                                                     {t('Accountant-employer.Body.Sixteen')}
                                                                                 </td>
@@ -930,11 +854,11 @@ const Overview = (props) => {
 
                                                                                 </span>
                                                                             </td>
-                                                                            {!item.receiveMoneyId &&
+                                                                            {!item.statusreceivedmoney_id &&
                                                                                 <td style={{ color: "orange", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
-                                                                            {item.receiveMoneyId &&
+                                                                            {item.statusreceivedmoney_id &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
@@ -982,7 +906,7 @@ const Overview = (props) => {
                                                                             </td>
 
 
-                                                                            {+item.receiveMoneyId === 1 &&
+                                                                            {+item.statusreceivedmoney_id === 1 &&
                                                                                 < td >
                                                                                     <button className='btn btn-success mb-3' onClick={() => complete(item)}>
                                                                                         {t('Accountant-employer.Body.Seventeen')}
@@ -1092,11 +1016,11 @@ const Overview = (props) => {
 
                                                                             </span>
                                                                         </td>
-                                                                        {!item.receiveMoneyId &&
+                                                                        {!item.statusreceivedmoney_id &&
                                                                             <td style={{ color: "orange", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                         }
-                                                                        {item.receiveMoneyId > 0 &&
+                                                                        {item.statusreceivedmoney_id > 0 &&
                                                                             <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                         }
@@ -1143,7 +1067,7 @@ const Overview = (props) => {
 
                                                                         </td>
 
-                                                                        {item.receiveMoneyId === 0 &&
+                                                                        {item.statusreceivedmoney_id === 0 &&
                                                                             <td>
                                                                                 <button className='btn btn-danger mb-3' onClick={() => update(item)} >
                                                                                     {t('Accountant-employer.Body.Fourteen')}
@@ -1152,7 +1076,7 @@ const Overview = (props) => {
                                                                             </td>
 
                                                                         }
-                                                                        {+item.receiveMoneyId === 1 && user?.account?.phone == item.Number_Overview &&
+                                                                        {+item.statusreceivedmoney_id === 1 && user?.account?.phone == item.Number_Overview &&
                                                                             < td >
                                                                                 <button className='btn btn-success mb-3' onClick={() => complete(item)}>
                                                                                     {t('Accountant-employer.Body.Seventeen')}
@@ -1164,12 +1088,12 @@ const Overview = (props) => {
 
                                                                             </td>
                                                                         }
-                                                                        {+item.receiveMoneyId === 1 && user?.account?.phone !== item.Number_Overview &&
+                                                                        {+item.statusreceivedmoney_id === 1 && user?.account?.phone !== item.Number_Overview &&
                                                                             <td style={{ color: "orange", fontWeight: "600" }}>
                                                                                 {t('Accountant-employer.Body.Fifteen')}
                                                                             </td>
                                                                         }
-                                                                        {item.receiveMoneyId === 2 || item.receiveMoneyId === 3 &&
+                                                                        {item.statusreceivedmoney_id === 2 || item.statusreceivedmoney_id === 3 &&
                                                                             <td style={{ color: "blue", fontWeight: "600" }}>
                                                                                 {t('Accountant-employer.Body.Sixteen')}
                                                                             </td>

@@ -744,6 +744,7 @@ const DetailProduct = (props) => {
         let data = await fetchImagebyOrder(projects.order)
         if (data && +data.EC === 0) {
             setImageRender(data.DT)
+
         }
 
     }

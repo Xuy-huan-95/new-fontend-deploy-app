@@ -57,14 +57,14 @@ const OverviewStatusThree = (props) => {
             setvalueSearch(value)
             if (data) {
                 SetIsSearch(true)
-                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingUnit_Id)
+                let res = await getDataSearchByEmplyer(data, user.account.Position, +user.account.shippingunit_id)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 3)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 3)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -72,12 +72,7 @@ const OverviewStatusThree = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         } else {
             let data = value
@@ -86,12 +81,12 @@ const OverviewStatusThree = (props) => {
                 SetIsSearch(true)
                 let res = await getDataSearchByEmplyer(data, user.account.Position, +select)
                 if (res && +res.EC === 0) {
-                    let data = res.DT.filter(item => item.receiveMoneyId === 3)
+                    let data = res.DT.filter(item => item.statusreceivedmoney_id === 3)
                     if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                        await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                        await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                     }
                     if (user?.account?.groupName === "Dev") {
-                        await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                        await getALlListNotification(+user.account.shippingunit_id, "Dev")
                     }
                     setListProjectSearch(data)
                 }
@@ -99,12 +94,7 @@ const OverviewStatusThree = (props) => {
             } else {
                 SetIsSearch(false)
                 await fetchProjectUser(select)
-                if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-                }
-                if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-                }
+
             }
         }
 
@@ -118,14 +108,14 @@ const OverviewStatusThree = (props) => {
 
     const fetchProjectUser = async (select) => {
         if (!select) {
-            let res = await getDataSortByOverview(+user.account.shippingUnit_Id, 3)
+            let res = await getDataSortByOverview(+user.account.shippingunit_id, 3)
             if (res && +res.EC === 0) {
                 setListProjectbyStaffOverview(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             }
         } else {
@@ -133,10 +123,10 @@ const OverviewStatusThree = (props) => {
             if (res && +res.EC === 0) {
                 setListProjectbyStaffOverview(res.DT)
                 if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-                    await getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
+                    await getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
                 }
                 if (user?.account?.groupName === "Dev") {
-                    await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
+                    await getALlListNotification(+user.account.shippingunit_id, "Dev")
                 }
             }
         }
@@ -146,12 +136,7 @@ const OverviewStatusThree = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingUnit_Id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingUnit_Id, "Dev")
-        }
+
 
     }, [])
 
@@ -380,7 +365,7 @@ const OverviewStatusThree = (props) => {
 
                                                                                 </span>
                                                                             </td>
-                                                                            {item.receiveMoneyId === 3 &&
+                                                                            {item.statusreceivedmoney_id === 3 &&
                                                                                 <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                             }
@@ -428,7 +413,7 @@ const OverviewStatusThree = (props) => {
                                                                             </td>
 
 
-                                                                            {item.receiveMoneyId === 3 &&
+                                                                            {item.statusreceivedmoney_id === 3 &&
                                                                                 < td >
 
                                                                                     <span className='mb-3' style={{ color: "green", fontWeight: "600" }}  >
@@ -534,7 +519,7 @@ const OverviewStatusThree = (props) => {
 
                                                                             </span>
                                                                         </td>
-                                                                        {item.receiveMoneyId === 3 &&
+                                                                        {item.statusreceivedmoney_id === 3 &&
                                                                             <td style={{ color: "blue", fontWeight: "600" }}>{item?.Statusreceivedmoney?.status ? item?.Statusreceivedmoney?.status : "Chưa xử lý"} </td>
 
                                                                         }
@@ -582,7 +567,7 @@ const OverviewStatusThree = (props) => {
                                                                         </td>
 
 
-                                                                        {item.receiveMoneyId === 3 &&
+                                                                        {item.statusreceivedmoney_id === 3 &&
                                                                             < td >
 
                                                                                 <span className='mb-3' style={{ color: "green", fontWeight: "600" }}  >
