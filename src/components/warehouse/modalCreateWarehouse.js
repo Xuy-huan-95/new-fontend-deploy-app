@@ -258,7 +258,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             if (action === "Create") {
-                let dataCreate = await axios.post("https://huyle-app-backend.onrender.com/api/v6/create-warehouse-pic", formData, {
+                let dataCreate = await axios.post("https://huyle-backend-app.onrender.comapi/v6/create-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -297,7 +297,7 @@ const ModalCreateWarehouse = (props) => {
 
 
             } if (action === "Update") {
-                let dataCreate = await axios.put("https://huyle-app-backend.onrender.com/api/v6/upload-warehouse-pic", formData, {
+                let dataCreate = await axios.put("https://huyle-backend-app.onrender.comapi/v6/upload-warehouse-pic", formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -391,7 +391,7 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Update") {
-            setprevireImage("https://huyle-app-backend.onrender.com/image/" + dataWarehouseEdit.image)
+            setprevireImage("https://huyle-backend-app.onrender.comimage/" + dataWarehouseEdit.image)
             setListdata(draft => {
                 draft.id = dataWarehouseEdit.id
                 draft.Product = dataWarehouseEdit.product;
@@ -408,7 +408,7 @@ const ModalCreateWarehouse = (props) => {
             })
         }
         if (action === "Repeat" && dataWarehouseRepeat) {
-            setprevireImage("https://huyle-app-backend.onrender.com/image/" + dataWarehouseRepeat.image)
+            setprevireImage("https://huyle-backend-app.onrender.comimage/" + dataWarehouseRepeat.image)
             setListdata(draft => {
                 draft.Product = dataWarehouseRepeat.product;
                 draft.Product_Prince = dataWarehouseRepeat.product_cost;
