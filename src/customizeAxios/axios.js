@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-    baseURL: 'https://huyle-app-backend.onrender.com'
+    baseURL: 'https://backend-app-7xoi.onrender.com'
 });
 
 instance.defaults.withCredentials = true

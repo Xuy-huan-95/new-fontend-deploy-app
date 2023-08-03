@@ -612,7 +612,7 @@ const CreateNewProduct = (props) => {
         formData.append("order", userdata.order);
 
 
-        fetch("https://huyle-backend-app.onrender.com/api/v6/upload-multiple-pic", {
+        fetch("https://backend-app-7xoi.onrender.com/api/v6/upload-multiple-pic", {
             method: "POST",
             body: formData,
 

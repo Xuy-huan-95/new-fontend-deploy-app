@@ -10,9 +10,7 @@ const fetchShippingCostByShippingUnit = (ShippingUnitId) => {
 }
 
 const getPriceByAddress = (From, To, shippingUnitId) => {
-    return axios.get(`https://huyle-app-backend.onrender.com
-
-/api/v6/getPrice?From=${From}&To=${To}&shippingUnit_Id=${shippingUnitId}`)
+    return axios.get(`/api/v6/getPrice?From=${From}&To=${To}&shippingUnit_Id=${shippingUnitId}`)
 }
 
 export {
