@@ -873,8 +873,8 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-backend-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-backend-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-app-backend.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-app-backend.onrender.com/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {
@@ -1082,8 +1082,8 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-backend-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-backend-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-app-backend.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-app-backend.onrender.com/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
                                                                                     {
