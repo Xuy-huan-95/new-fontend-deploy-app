@@ -396,6 +396,7 @@ const DetailProduct = (props) => {
         if (res && +res.EC === 0) {
             setProjects(res.DT[0])
             setprojectsDefaut(res.DT[0])
+            console.log("res.DT[0]", res.DT[0])
 
         }
         else {
@@ -772,7 +773,7 @@ const DetailProduct = (props) => {
         }
         formData.append("order", projects.order);
 
-        let dataCreateImage = await axios.post("https://huy-le-app.onrender.com/api/v6/upload-multiple-pic", formData, {
+        let dataCreateImage = await axios.post("https://huyle-backend-app.onrender.com/api/v6/upload-multiple-pic", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -1445,7 +1446,7 @@ const DetailProduct = (props) => {
                                                                                     </div>
 
                                                                                 </div>
-                                                                                {projects.statusPaymentId == "1" &&
+                                                                                {projects.statuspayment_id == "1" &&
 
                                                                                     < div className='item-info py-1 d-flex align-items-center justify-content-between'>
                                                                                         <div className='container'>
@@ -1468,7 +1469,7 @@ const DetailProduct = (props) => {
                                                                                         </div>
                                                                                     </div>
                                                                                 }
-                                                                                {projects.statusPaymentId == "2" &&
+                                                                                {projects.statuspayment_id == "2" &&
                                                                                     < div className='item-info py-1 d-flex align-items-center justify-content-between'>
                                                                                         <div className='container'>
                                                                                             <div className='row'>
@@ -1493,7 +1494,7 @@ const DetailProduct = (props) => {
 
                                                                                 }
 
-                                                                                {projects.statusPaymentId == "3" &&
+                                                                                {projects.statuspayment_id == "3" &&
 
                                                                                     < div className='item-info py-1 d-flex align-items-center justify-content-between'>
                                                                                         <div className='container'>
@@ -1531,7 +1532,6 @@ const DetailProduct = (props) => {
                                                                                                 id='input-total-product'
                                                                                                 type="text"
                                                                                                 min="1" max="9999"
-                                                                                                disabled
                                                                                                 className="form-control col-12 mt-2"
 
                                                                                                 value={
@@ -1542,8 +1542,10 @@ const DetailProduct = (props) => {
                                                                                             />
                                                                                         </div>
                                                                                     </div>
-
                                                                                 </div>
+
+
+
                                                                                 <div className='item-info py-1 d-flex align-items-center justify-content-between '>
                                                                                     <div className='container'>
                                                                                         <div className='row'>
@@ -1927,13 +1929,13 @@ const DetailProduct = (props) => {
                                                                                                             {actionModalFour === "4" ?
                                                                                                                 <>
 
-                                                                                                                    <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                    <img src={"https://huyle-backend-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
                                                                                                                     <h5 className="card-title" onClick={() => handleDeleteImage(item.url)}> <i className="fa fa-times-circle" aria-hidden="true"></i></h5>
 
                                                                                                                 </>
                                                                                                                 :
-                                                                                                                <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                                <img src={"https://huyle-backend-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
 
                                                                                                             }
@@ -2054,7 +2056,7 @@ const DetailProduct = (props) => {
 
 
 
-                                                                                                        <img src={"https://huy-le-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
+                                                                                                        <img src={"https://huyle-backend-app.onrender.com/image/" + item.url} alt="" title='View detail image' />
 
 
 

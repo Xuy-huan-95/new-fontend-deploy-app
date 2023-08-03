@@ -13,7 +13,6 @@ const NotificationProvider = ({ children }) => {
 
 
     const getALlListNotification = async (shippingUnit_Id, phone, position, name) => {
-        console.log("shippingUnit_Id, phone, position", shippingUnit_Id, phone, position)
         if (!shippingUnit_Id) {
 
             let res = await getAllNotificaltion(shippingUnit_Id, phone)

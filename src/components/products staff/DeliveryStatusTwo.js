@@ -145,12 +145,7 @@ const DeliveryStatusTwo = (props) => {
 
     useEffect(() => {
         fetchProjectUser();
-        if (user?.account?.groupName === "Customer" || user?.account?.groupName === "Staff" && user.account.Position) {
-            getALlListNotification(+user.account.shippingunit_id, user.account.phone, user.account.Position)
-        }
-        if (user?.account?.groupName === "Dev") {
-            getALlListNotification(+user.account.shippingunit_id, "Dev")
-        }
+
 
     }, [])
     return (

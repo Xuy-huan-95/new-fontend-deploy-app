@@ -63,7 +63,7 @@ const CreateNewProduct = (props) => {
         name_Product: "",
         number: "",
         money: "",
-        totalMoney: "",
+        total: "",
         totalWithShippingCost: "",
         price_drop: "",
         paid: "",
@@ -105,7 +105,7 @@ const CreateNewProduct = (props) => {
         name_Product: true,
         number: true,
         money: true,
-        totalMoney: true,
+        total: true,
         totalWithShippingCost: true,
         price_drop: true,
         paid: true,
@@ -149,7 +149,7 @@ const CreateNewProduct = (props) => {
 
     const checkValueDate = () => {
         setValidInput(ValidInputsDefault)
-        let arr = ["name_Product", "number", "unit", "salesChannel", "money", "price_drop", "StatusPaymentId", "paid", "totalMoney", "unit_money",
+        let arr = ["name_Product", "number", "unit", "salesChannel", "money", "price_drop", "StatusPaymentId", "paid", "total", "unit_money",
             "customer_name", "customer_name_phone", "age",
             "Province_customer", "District_customer", "Ward_customer", "detail_address_customer",
             "Province_of_receipt", "District_of_receipt", "Ward_of_receipt", "Detail_Place_of_receipt",
@@ -612,7 +612,7 @@ const CreateNewProduct = (props) => {
         formData.append("order", userdata.order);
 
 
-        fetch("https://huy-le-app.onrender.com/api/v6/upload-multiple-pic", {
+        fetch("https://huyle-backend-app.onrender.com/api/v6/upload-multiple-pic", {
             method: "POST",
             body: formData,
 
@@ -753,7 +753,8 @@ const CreateNewProduct = (props) => {
                                                             <Link to="/Warehouse">
                                                                 <i className="fa fa-wrench" aria-hidden="true"></i>
                                                                 <span className='mx-2'>
-                                                                    {t('CreateProduct.tittleTwentyOne')}                                                            </span>
+                                                                    {t('CreateProduct.tittleTwentyOne')}
+                                                                </span>
                                                             </Link>
 
                                                         </label>
@@ -788,7 +789,8 @@ const CreateNewProduct = (props) => {
                                                 </div>
                                                 <div className='unit col-12 col-lg-3 mb-2'>
                                                     <label htmlFor='input-product'>
-                                                        {t('CreateProduct.tittleFour')}                                                    </label>
+                                                        {t('CreateProduct.tittleFour')}
+                                                    </label>
                                                     <select
                                                         readOnly
                                                         className={validInput.unit ? "form-select my-2" : "form-select my-2 is-invalid"}
@@ -947,11 +949,11 @@ const CreateNewProduct = (props) => {
                                                         id='input-total-product'
                                                         type="text"
 
-                                                        className={validInput.totalMoney ? "form-control" : "form-control is-invalid"}
+                                                        className={validInput.total ? "form-control" : "form-control is-invalid"}
                                                         disabled
                                                         value={Number(`${userdata.money}`) * Number(`${userdata.number}`) - Number(`${userdata.price_drop ? userdata.price_drop : "0"}`) - Number(`${userdata.paid ? userdata.paid : "0"}`)
-                                                            ? userdata.totalMoney = Number(`${userdata.money}`) * Number(`${userdata.number}`) - Number(`${userdata.price_drop ? userdata.price_drop : "0"}`) - Number(`${userdata.paid ? userdata.paid : "0"}`)
-                                                            : userdata.totalMoney = "0"
+                                                            ? userdata.total = Number(`${userdata.money}`) * Number(`${userdata.number}`) - Number(`${userdata.price_drop ? userdata.price_drop : "0"}`) - Number(`${userdata.paid ? userdata.paid : "0"}`)
+                                                            : userdata.total = "0"
                                                         }
 
                                                     />
@@ -1465,20 +1467,14 @@ const CreateNewProduct = (props) => {
                                                                 disabled
                                                                 className='form-control'
                                                                 onChange={(event) => handleOnchangeInput(event.target.value, "totalWithShippingCost")}
-                                                                value={userdata.shipping_Cost && userdata.totalMoney
+                                                                value={userdata.shipping_Cost && userdata.total
                                                                     ?
-                                                                    userdata.totalWithShippingCost = Number(`${userdata.shipping_Cost}`) + Number(`${userdata.totalMoney}`)
+                                                                    userdata.totalWithShippingCost = Number(`${userdata.shipping_Cost}`) + Number(`${userdata.total}`)
                                                                     : userdata.totalWithShippingCost = "Đang cập nhật"
                                                                 }
 
                                                             />
-
-
-
-
                                                         </div>
-
-
                                                     </div>
 
                                                 </div>

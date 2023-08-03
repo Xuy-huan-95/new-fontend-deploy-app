@@ -32,7 +32,7 @@ const UserProvider = ({ children }) => {
         // khi chay ham getaccount thanh cong thi bien user duoc cap nhat thi chay vao day moi di tiep duoc
         let res = await GetUserAccount();
         if (res && res.EC === 0) {
-            console.log("res.DT", res.DT)
+            console.log("res.DT-35", res.DT)
             let groupWithRound = res.DT.groupWithRole;
             let email = res.DT.email;
             let usersname = res.DT.usersname;

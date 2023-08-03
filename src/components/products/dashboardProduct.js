@@ -118,6 +118,7 @@ const DashboardProduct = (props) => {
                 await getALlListNotification(+user.account.shippingUnit_Id, "Dev")
             }
             setDataOne(res.DT[0])
+            console.log("res.DT[0]", res.DT[0])
         }
 
     }

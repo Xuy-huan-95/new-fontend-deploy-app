@@ -104,26 +104,13 @@ const NavHeader = (props) => {
                                         id="basic-nav-dropdown" className='dropdown'>
                                         <NavDropdown.Item href='/listuser'  >
                                             {t('navigation.three')}
-
                                         </NavDropdown.Item>
-                                        {user?.account?.groupName === "Customer"
-                                            ?
-                                            <></>
-                                            :
-                                            <>
-                                                <NavDropdown.Item href='/role' >
-                                                    {t('navigation.Four')}
-                                                </NavDropdown.Item>
-                                                <NavDropdown.Item href='/grouprole'>
-                                                    {t('navigation.Five')}
-                                                </NavDropdown.Item>
-                                            </>
-                                        }
-
-
-
-
-
+                                        <NavDropdown.Item href='/role' >
+                                            {t('navigation.Four')}
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href='/grouprole'>
+                                            {t('navigation.Five')}
+                                        </NavDropdown.Item>
                                     </NavDropdown>
 
 
@@ -143,8 +130,6 @@ const NavHeader = (props) => {
                                     </NavDropdown>
 
                                     {user?.account?.groupName === "Staff" &&
-
-
                                         < NavDropdown title={`${t('navigation.Eleven')}`} id="basic-nav-dropdown" className='dropdown'>
                                             <NavDropdown.Item href='/order-processing'>
                                                 {t('navigation.Twelve')}

@@ -119,6 +119,7 @@ const Profile = (props) => {
 
 
     const UpdateProfile = async () => {
+
         if (!data?.usersname) {
             toast.error("Empty usersname !!!!")
             setisValidName(false)
@@ -142,7 +143,6 @@ const Profile = (props) => {
             return;
         }
         if (!imageUpdate) {
-            console.log("data", data)
             let res = await UpdateUser({ ...data, image: image })
 
             if (res && +res.EC === 0) {
@@ -211,6 +211,7 @@ const Profile = (props) => {
         if (value) {
             let res = await fetchWarCustomerdByDistrictCustomer(value)
             if (res && +res.EC === 0) {
+
                 setassignWardtByDistric(res?.DT)
 
             }
@@ -255,6 +256,8 @@ const Profile = (props) => {
     useEffect(() => {
         handleOnchangeProviceCustomer(data?.provincecustomer_id)
         handleOnchangeDistrictCustomer(data?.districtcustomer_id)
+        console.log("data", data)
+
     }, [data])
 
     return (
@@ -763,6 +766,33 @@ const Profile = (props) => {
                                                     </span>
                                                     <span className='d-flex align-items-center'>
                                                         <span className='mx-3 color-item address-wrap'>{data?.Position ? data?.Position : ""}</span>
+
+                                                    </span>
+
+                                                </div>
+                                            }
+
+                                            {data?.Position
+                                                &&
+                                                <div className="item my-3">
+                                                    <span className='my-3 d-flex'>
+                                                        <span className='item-position mx-1'>
+                                                            <span>
+                                                                <i class="fa fa-universal-access" aria-hidden="true"></i>
+                                                            </span>
+
+
+                                                            <span className='mx-1'>
+                                                                {t('Profile.Eleven')}
+                                                            </span>
+
+                                                        </span>
+                                                        <span className='mx-3'>
+
+                                                        </span>
+                                                    </span>
+                                                    <span className='d-flex align-items-center'>
+                                                        <span className='mx-3 color-item address-wrap'>{data?.Shippingunit?.NameUnit ? data?.Shippingunit?.NameUnit : ""}</span>
 
                                                     </span>
 

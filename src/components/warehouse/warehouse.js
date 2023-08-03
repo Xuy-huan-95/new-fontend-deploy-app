@@ -873,11 +873,12 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-backend-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-backend-app.onrender.com/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
-                                                                                    {item?.productstatuss_id === 1 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 1 &&
                                                                                         <td style={{ color: "blueviolet", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -887,7 +888,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 2 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 2 &&
                                                                                         <td style={{ color: "violet", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -897,7 +899,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 3 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 3 &&
                                                                                         <td style={{ color: "red", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -908,7 +911,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 4 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 4 &&
                                                                                         <td style={{ color: "green", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -918,7 +922,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {!item?.productstatuss_id &&
+                                                                                    {
+                                                                                        !item?.productstatuss_id &&
                                                                                         <td >
                                                                                             {item?.Product_status?.status
                                                                                                 ?
@@ -947,7 +952,8 @@ const Warehouse = (props) => {
 
 
 
-                                                                                    {item?.productstatuss_id === 2
+                                                                                    {
+                                                                                        item?.productstatuss_id === 2
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -969,7 +975,8 @@ const Warehouse = (props) => {
                                                                                     }
 
 
-                                                                                    {item?.productstatuss_id === 3
+                                                                                    {
+                                                                                        item?.productstatuss_id === 3
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -990,7 +997,8 @@ const Warehouse = (props) => {
 
                                                                                     }
 
-                                                                                    {item?.productstatuss_id === 1
+                                                                                    {
+                                                                                        item?.productstatuss_id === 1
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -1010,7 +1018,8 @@ const Warehouse = (props) => {
                                                                                         </td>
 
                                                                                     }
-                                                                                    {item?.productstatuss_id === 4
+                                                                                    {
+                                                                                        item?.productstatuss_id === 4
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -1073,11 +1082,12 @@ const Warehouse = (props) => {
 
                                                                                     <td scope="row">{(currentPage - 1) * currentLimit + index + 1}</td>
                                                                                     <td scope="row" >{item.id}</td>
-                                                                                    <td scope="row" onClick={() => handleClickImage("https://huy-le-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
-                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huy-le-app.onrender.com/image/" + item.image} alt="" />
+                                                                                    <td scope="row" onClick={() => handleClickImage("https://huyle-backend-app.onrender.com/image/" + item.image)} style={{ cursor: "pointer", width: "70px", height: "70px" }}>
+                                                                                        <img style={{ width: "100%", height: "100%" }} src={"https://huyle-backend-app.onrender.com/image/" + item.image} alt="" />
                                                                                     </td>
                                                                                     <td>{item?.product}</td>
-                                                                                    {item?.productstatuss_id === 1 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 1 &&
                                                                                         <td style={{ color: "blueviolet", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -1087,7 +1097,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 2 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 2 &&
                                                                                         <td style={{ color: "violet", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -1097,7 +1108,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 3 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 3 &&
                                                                                         <td style={{ color: "red", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -1108,7 +1120,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {item?.productstatuss_id === 4 &&
+                                                                                    {
+                                                                                        item?.productstatuss_id === 4 &&
                                                                                         <td style={{ color: "green", fontWeight: "800" }}>
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -1118,7 +1131,8 @@ const Warehouse = (props) => {
                                                                                             }
                                                                                         </td>
                                                                                     }
-                                                                                    {!item?.productstatuss_id &&
+                                                                                    {
+                                                                                        !item?.productstatuss_id &&
                                                                                         <td >
                                                                                             {item?.Productstatuss?.status
                                                                                                 ?
@@ -1147,7 +1161,8 @@ const Warehouse = (props) => {
 
 
 
-                                                                                    {item?.productstatuss_id === 2
+                                                                                    {
+                                                                                        item?.productstatuss_id === 2
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -1169,7 +1184,8 @@ const Warehouse = (props) => {
                                                                                     }
 
 
-                                                                                    {item?.productstatuss_id === 3
+                                                                                    {
+                                                                                        item?.productstatuss_id === 3
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -1190,7 +1206,8 @@ const Warehouse = (props) => {
 
                                                                                     }
 
-                                                                                    {item?.productstatuss_id === 1
+                                                                                    {
+                                                                                        item?.productstatuss_id === 1
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>
@@ -1210,7 +1227,8 @@ const Warehouse = (props) => {
                                                                                         </td>
 
                                                                                     }
-                                                                                    {item?.productstatuss_id === 4
+                                                                                    {
+                                                                                        item?.productstatuss_id === 4
                                                                                         &&
                                                                                         <td >
                                                                                             <div className='d-flex'>

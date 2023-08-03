@@ -147,7 +147,7 @@ const ModalCancelReason = (props) => {
 
     }
     useEffect(() => {
-        setNotification(`Sản phẩm đã mang về kho ${dataCancel?.Address_District?.name}, ${dataCancel?.Address_Province?.name} ,
+        setNotification(`Sản phẩm đã mang về kho ${dataCancel?.Addressdistrict?.name}, ${dataCancel?.Addressprovince?.name} ,
         quý khách vui lòng qua kho lấy sản phẩm và đóng tiền ship ${dataCancel?.shipping_Cost}-${dataCancel?.unit_money} ,
          phí lưu kho là 10000-${dataCancel?.unit_money}/ngày 
          tiền kho tính từ ngày ${moment(moment().add(1, 'days')).format("DD/MM/YYYY ")
