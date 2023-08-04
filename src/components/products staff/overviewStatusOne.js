@@ -55,7 +55,7 @@ const OverviewStatusOne = (props) => {
             if (!item.User_Overview && !item.Number_Overview) {
                 let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 1, new Date(), "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
@@ -71,7 +71,7 @@ const OverviewStatusOne = (props) => {
             if (item.User_Overview && item.Number_Overview) {
                 let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, "", "", 0, "", "", "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng trì hoãn đối soát", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
@@ -181,7 +181,7 @@ const OverviewStatusOne = (props) => {
             if (item.Mode_of_payment === "Nhận tiền thanh toán qua tài khoản ngân hàng") {
                 let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 2, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng chuyển khoản", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
@@ -199,7 +199,7 @@ const OverviewStatusOne = (props) => {
             if (item.User_Overview && item.Number_Overview && item.Mode_of_payment === "Nhận tiền thanh toán ở trung tâm") {
                 let res = await updateOverviewInProject(item.id, +user.account.shippingunit_id, user.account.usersname, user.account.phone, 3, item.Overview_time, new Date(), 1)
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đối soát xong bằng tiền mặt", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
