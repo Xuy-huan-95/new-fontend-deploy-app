@@ -59,7 +59,7 @@ const PickUpStatusOne = (props) => {
             if (!item.User_PickUp && !item.Number_PickUp) {
                 let res = await updatePickupInProject(+user.account.shippingunit_id, item.id, user.account.usersname, user.account.phone, 1, new Date(), "")
                 if (res && +res.EC === 0) {
-                    let abc = await createNotification(item.id, item.order, "đơn hàng đang lấy hàng", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingUnit_Id)
+                    let abc = await createNotification(item.id, item.order, "đơn hàng đang lấy hàng", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 1, item.shippingunit_id)
                     if (abc && +abc.EC === 0) {
                         await fetchProjectUser(select)
                         if (valueSearch) {
