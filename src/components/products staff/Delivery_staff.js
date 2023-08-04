@@ -150,7 +150,7 @@ const Delivery_staff = (props) => {
         if (!select) {
             let res = await updateDeliveryInProject(item.id, +user.account.shippingunit_id, 2, user.account.usersname, user.account.phone, "", "", item.Delivery_time, new Date(), "")
             if (res && +res.EC === 0) {
-                let abc = await createNotification(item.id, item.order, "đơn hàng giao xong", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingUnit_Id)
+                let abc = await createNotification(item.id, item.order, "đơn hàng giao xong", `${user.account.usersname}-${user.account.phone}`, item.createdBy, 0, 0, item.shippingunit_id)
                 if (abc && +abc.EC === 0) {
                     await fetchProjectUserWithUsername(select)
                     await fetchProjectUser(select)
